@@ -1,0 +1,84 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "How to become a Web Developer in 2025",
+      "excerpt": "A comprehensive guide covering the essential skills, technologies, and roadmap to become a successful web developer in 2025.",
+      "date": "2025-01-15",
+      "readTime": "8 min read",
+      "category": "Career",
+      "slug": "how-to-become-web-developer-2025",
+      "image": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=500&q=80"
+    },
+    {
+      "id": 2,
+      "title": "Tips to Boost Your CGPA in University",
+      "excerpt": "Proven strategies and practical tips to improve your academic performance and achieve a higher CGPA throughout your university journey.",
+      "date": "2025-01-10",
+      "readTime": "6 min read",
+      "category": "Education",
+      "slug": "tips-boost-cgpa-university",
+      "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&q=80"
+    },
+    {
+      "id": 3,
+      "title": "How to Start University Life as a CSE Student",
+      "excerpt": "Essential advice for Computer Science students beginning their university journey, covering academics, programming, and career preparation.",
+      "date": "2025-01-05",
+      "readTime": "7 min read",
+      "category": "Education",
+      "slug": "start-university-life-cse-student",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&q=80"
+    },
+    {
+      "id": 4,
+      "title": "Modern JavaScript Features Every Developer Should Know",
+      "excerpt": "Explore the latest JavaScript features including ES2023 updates, async patterns, and modern development techniques.",
+      "date": "2024-12-28",
+      "readTime": "10 min read",
+      "category": "Programming",
+      "slug": "modern-javascript-features-2025",
+      "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=500&q=80"
+    },
+    {
+      "id": 5,
+      "title": "Building Scalable React Applications",
+      "excerpt": "Best practices for building large-scale React applications with proper architecture, state management, and performance optimization.",
+      "date": "2024-12-20",
+      "readTime": "12 min read",
+      "category": "Programming",
+      "slug": "building-scalable-react-applications",
+      "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=500&q=80"
+    },
+    {
+      "id": 6,
+      "title": "Getting Your First Tech Job: A Complete Guide",
+      "excerpt": "Everything you need to know about landing your first job in tech, from resume building to interview preparation.",
+      "date": "2024-12-15",
+      "readTime": "9 min read",
+      "category": "Career",
+      "slug": "getting-first-tech-job-guide",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80"
+    },
+    {
+      "id": 7,
+      "title": "The Future of Web Development in 2025",
+      "excerpt": "Explore emerging trends, new technologies, and the evolving landscape of web development in 2025 and beyond.",
+      "date": "2024-12-10",
+      "readTime": "8 min read",
+      "category": "Technology",
+      "slug": "future-web-development-2025",
+      "image": "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=500&q=80"
+    },
+    {
+      "id": 8,
+      "title": "Mastering Git and GitHub for Developers",
+      "excerpt": "A comprehensive guide to version control with Git and GitHub, including advanced workflows and collaboration techniques.",
+      "date": "2024-12-05",
+      "readTime": "11 min read",
+      "category": "Programming",
+      "slug": "mastering-git-github-developers",
+      "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=500&q=80"
+    }
+  ]
+}
