@@ -11,71 +11,7 @@ const BlogsPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
 
-  const allBlogs = blogsData.blogs
-      image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      slug: 'tips-boost-cgpa-university'
-    },
-    {
-      id: 3,
-      title: 'How to Start University Life as a CSE Student',
-      excerpt: 'Essential advice for Computer Science students beginning their university journey, covering academics, programming, and career preparation.',
-      date: '2025-01-05',
-      readTime: '7 min read',
-      category: 'Education',
-      image: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      slug: 'start-university-life-cse-student'
-    },
-    {
-      id: 4,
-      title: 'Modern JavaScript Features Every Developer Should Know',
-      excerpt: 'Explore the latest JavaScript features including ES2023 updates, async patterns, and modern development techniques.',
-      date: '2024-12-28',
-      readTime: '10 min read',
-      category: 'Programming',
-      image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      slug: 'modern-javascript-features-2025'
-    },
-    {
-      id: 5,
-      title: 'Building Scalable React Applications',
-      excerpt: 'Best practices for building large-scale React applications with proper architecture, state management, and performance optimization.',
-      date: '2024-12-20',
-      readTime: '12 min read',
-      category: 'Programming',
-      image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      slug: 'building-scalable-react-applications'
-    },
-    {
-      id: 6,
-      title: 'Getting Your First Tech Job: A Complete Guide',
-      excerpt: 'Everything you need to know about landing your first job in tech, from resume building to interview preparation.',
-      date: '2024-12-15',
-      readTime: '9 min read',
-      category: 'Career',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      slug: 'getting-first-tech-job-guide'
-    },
-    {
-      id: 7,
-      title: 'The Future of Web Development in 2025',
-      excerpt: 'Explore emerging trends, new technologies, and the evolving landscape of web development in 2025 and beyond.',
-      date: '2024-12-10',
-      readTime: '8 min read',
-      category: 'Technology',
-      image: 'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      slug: 'future-web-development-2025'
-    },
-    {
-      id: 8,
-      title: 'Mastering Git and GitHub for Developers',
-      excerpt: 'A comprehensive guide to version control with Git and GitHub, including advanced workflows and collaboration techniques.',
-      date: '2024-12-05',
-      readTime: '11 min read',
-      category: 'Programming',
-      image: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      slug: 'mastering-git-github-developers'
-    }
-  ]
+  const allBlogs = blogsData.blogs;
 
   const categories = ['All', 'Career', 'Education', 'Programming', 'Technology']
 
