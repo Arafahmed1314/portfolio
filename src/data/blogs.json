@@ -67,7 +67,7 @@
       "date": "2024-12-10",
       "readTime": "8 min read",
       "category": "Technology",
-      "slug": "future-web-development-2025",
+      "slug": "future-of-web-development-2025",
       "image": "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=500&q=80"
     },
     {
@@ -77,8 +77,18 @@
       "date": "2024-12-05",
       "readTime": "11 min read",
       "category": "Programming",
-      "slug": "mastering-git-github-developers",
+      "slug": "mastering-git-and-github-for-developers",
       "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=500&q=80"
+    },
+    {
+      "id": 9,
+      "title": "JavaScript Interview Questions Guide: Crack Your Next Tech Interview",
+      "excerpt": "A comprehensive collection of JavaScript interview questions with detailed answers and code examples to help you ace your next technical interview.",
+      "date": "2025-01-20",
+      "readTime": "15 min read",
+      "category": "Programming",
+      "slug": "javascript-interview-questions-guide",
+      "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&q=80"
     }
   ]
 }

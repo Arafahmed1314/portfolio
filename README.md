@@ -24,36 +24,42 @@ A modern, responsive portfolio website built with Next.js, Tailwind CSS, and Fra
 ## 📱 Sections
 
 ### 🏠 Hero Section
+
 - Dynamic typing animation with role rotation
 - Gradient backgrounds with floating elements
 - Call-to-action buttons
 - Professional profile card
 
 ### 🧠 Skills Section
+
 - Categorized skill sets (Frontend, Backend, Tools)
 - Animated progress bars
 - Competitive programming statistics
 - Platform links and achievements
 
 ### 🧩 Projects Section
+
 - Responsive project grid (4/3/2/1 columns)
 - Animated card shuffling with navigation
 - Live demo and GitHub links
 - Technology tags and categories
 
 ### 📝 Blog Section
+
 - Article previews with categories
 - Expandable full-content modals
 - Reading time estimates
 - Professional writing samples
 
 ### 📬 Contact Section
+
 - Functional contact form
 - EmailJS integration
 - Contact information cards
 - Social media links
 
 ### 🔗 Footer
+
 - Quick navigation links
 - Social media presence
 - Professional contact details
@@ -62,33 +68,38 @@ A modern, responsive portfolio website built with Next.js, Tailwind CSS, and Fra
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/araf/portfolio.git
 cd portfolio
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Set up EmailJS:
+
    - Create an account at [EmailJS](https://www.emailjs.com/)
    - Create a service and template
    - Update the credentials in `src/components/Contact.js`:
      ```javascript
-     const serviceId = 'your_service_id'
-     const templateId = 'your_template_id'
-     const publicKey = 'your_public_key'
+     const serviceId = "your_service_id";
+     const templateId = "your_template_id";
+     const publicKey = "your_public_key";
      ```
 
 4. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -123,7 +134,9 @@ portfolio/
 ## 🎨 Customization
 
 ### Personal Information
+
 Update the following files with your information:
+
 - `src/app/layout.js` - SEO metadata
 - `src/components/Hero.js` - Name and introduction
 - `src/components/Skills.js` - Your skills and competitive programming stats
@@ -133,11 +146,13 @@ Update the following files with your information:
 - `src/components/Footer.js` - Social links and contact details
 
 ### Styling
+
 - Modify CSS variables in `src/app/globals.css`
 - Update Tailwind classes in component files
 - Customize animations in Framer Motion configurations
 
 ### Content
+
 - Replace placeholder project data in `Projects.js`
 - Update blog content in `Blog.js`
 - Modify skill categories and levels in `Skills.js`
@@ -146,15 +161,18 @@ Update the following files with your information:
 ## 🌐 Deployment
 
 ### Vercel (Recommended)
+
 1. Push your code to GitHub
 2. Connect your repository to [Vercel](https://vercel.com)
 3. Deploy with one click
 
 ### Netlify
+
 1. Build the project: `npm run build`
 2. Deploy the `out` folder to [Netlify](https://netlify.com)
 
 ### Manual Deployment
+
 1. Build the project: `npm run build`
 2. Upload the generated files to your hosting provider
 
@@ -182,10 +200,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 **Araf** - Full-Stack Developer
+
 - Email: araf@example.com
-- LinkedIn: [linkedin.com/in/araf](https://linkedin.com/in/araf)
-- GitHub: [github.com/araf](https://github.com/araf)
-- Portfolio: [araf-portfolio.vercel.app](https://araf-portfolio.vercel.app)
+- LinkedIn: [linkedin.com/in/araf](https://www.linkedin.com/in/md-naimul-islam-068b9018b/)
+- GitHub: [github.com/araf](https://github.com/Arafahmed1314)
+- Portfolio: [araf-portfolio.vercel.app](https://www.naimul.me/)
 
 ## 🙏 Acknowledgments
 

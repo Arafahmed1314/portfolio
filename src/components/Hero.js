@@ -77,15 +77,15 @@ const Hero = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="text-center space-y-2">
-                                <p className="flex items-center justify-center gap-2 text-gray-300">
+                            <div className="text-left space-y-2">
+                                <p className="flex gap-2 text-gray-300">
                                     🎯 <span>Problem Solver</span>
                                 </p>
-                                <p className="flex items-center justify-center gap-2 text-gray-300">
-                                    💻 <span>Clean Code Enthusiast</span>
+                                <p className="flex  gap-2 text-gray-300">
+                                    💻 <span>Dedicated</span>
                                 </p>
-                                <p className="flex items-center justify-center gap-2 text-gray-300">
-                                    🚀 <span>Always Learning</span>
+                                <p className="flex   gap-2 text-gray-300">
+                                    🚀 <span>Hard Worker</span>
                                 </p>
                             </div>
                         </div>

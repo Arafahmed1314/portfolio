@@ -10,12 +10,12 @@ const Skills = () => {
       icon: <Globe className="w-6 h-6" />,
       color: 'from-blue-500 to-cyan-500',
       skills: [
-        { name: 'React', level: 85, icon: '⚛️' },
+        { name: 'React', level: 95, icon: '⚛️' },
         { name: 'Next.js', level: 80, icon: '▲' },
         { name: 'JavaScript', level: 90, icon: '🟨' },
         { name: 'Tailwind CSS', level: 85, icon: '🎨' },
-        { name: 'HTML5', level: 90, icon: '🌐' },
-        { name: 'CSS3', level: 85, icon: '💫' },
+        { name: 'HTML5', level: 95, icon: '🌐' },
+        { name: 'CSS3', level: 90, icon: '💫' },
       ]
     },
     {
@@ -26,7 +26,7 @@ const Skills = () => {
         { name: 'Node.js', level: 80, icon: '🟢' },
         { name: 'Express.js', level: 75, icon: '🚀' },
         { name: 'MongoDB', level: 70, icon: '🍃' },
-        { name: 'MySQL', level: 65, icon: '🐬' },
+        { name: 'MySQL', level: 75, icon: '🐬' },
         { name: 'REST APIs', level: 80, icon: '📡' },
         { name: 'JWT Auth', level: 75, icon: '🔐' },
       ]
@@ -38,10 +38,10 @@ const Skills = () => {
       skills: [
         { name: 'Git', level: 80, icon: '🌿' },
         { name: 'VS Code', level: 90, icon: '💙' },
-        { name: 'Figma', level: 70, icon: '🎯' },
+        { name: 'Figma', level: 65, icon: '🎯' },
         { name: 'Postman', level: 80, icon: '📮' },
-        { name: 'Docker', level: 60, icon: '🐳' },
-        { name: 'AWS', level: 55, icon: '☁️' },
+        { name: 'Canva', level: 90, icon: '🐳' },
+        { name: 'Latex', level: 75, icon: '☁️' },
       ]
     }
   ]
@@ -49,33 +49,29 @@ const Skills = () => {
   const competitiveProgramming = [
     {
       platform: 'Codeforces',
-      problemsSolved: 250,
-      rating: 1200,
-      link: 'https://codeforces.com/profile/araf',
+      problemsSolved: 133,
+      link: 'https://codeforces.com/profile/Araf_ahmed',
       color: 'from-blue-500 to-indigo-600',
       icon: '🔵'
     },
     {
       platform: 'LeetCode',
-      problemsSolved: 320,
-      rating: 1500,
-      link: 'https://leetcode.com/araf',
+      problemsSolved: 36,
+      link: 'https://leetcode.com/u/Arafahmed1314/',
       color: 'from-yellow-500 to-orange-600',
       icon: '🟡'
     },
     {
       platform: 'CodeChef',
-      problemsSolved: 180,
-      rating: 1400,
-      link: 'https://codechef.com/users/araf',
+      problemsSolved: 55,
+      link: 'https://www.codechef.com/users/nayemhasan1314',
       color: 'from-orange-500 to-red-600',
       icon: '🟠'
     },
     {
       platform: 'Beecrowd',
-      problemsSolved: 150,
-      rating: 1100,
-      link: 'https://beecrowd.com.br/judge/users/araf',
+      problemsSolved: 102,
+      link: 'https://judge.beecrowd.com/en/profile/619337',
       color: 'from-green-500 to-teal-600',
       icon: '🟢'
     }
@@ -98,8 +94,8 @@ const Skills = () => {
 
   const skillCardVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       scale: 1,
       transition: {
         type: "spring",
@@ -114,7 +110,7 @@ const Skills = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20" />
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <motion.div
@@ -160,15 +156,15 @@ const Skills = () => {
                     <h3 className="text-xl font-bold text-white">{category.title}</h3>
                     <div className="flex items-center gap-1 mt-1">
                       {[...Array(5)].map((_, i) => (
-                        <Star 
-                          key={i} 
-                          className={`w-3 h-3 ${i < 4 ? 'text-yellow-500 fill-current' : 'text-gray-600'}`} 
+                        <Star
+                          key={i}
+                          className={`w-3 h-3 ${i < 4 ? 'text-yellow-500 fill-current' : 'text-gray-600'}`}
                         />
                       ))}
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Skills */}
                 <div className="grid grid-cols-2 gap-4">
                   {category.skills.map((skill, skillIndex) => (
@@ -182,7 +178,7 @@ const Skills = () => {
                         <div className="text-center">
                           <div className="text-2xl mb-2">{skill.icon}</div>
                           <div className="text-sm font-semibold text-white mb-2">{skill.name}</div>
-                          
+
                           {/* Circular Progress */}
                           <div className="relative w-12 h-12 mx-auto">
                             <svg className="w-12 h-12 transform -rotate-90" viewBox="0 0 48 48">
@@ -267,7 +263,7 @@ const Skills = () => {
               >
                 {/* Glow Effect */}
                 <div className={`absolute inset-0 bg-gradient-to-r ${platform.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
-                
+
                 {/* Card */}
                 <div className="relative glass rounded-2xl p-6 border-2 border-transparent group-hover:border-purple-500/50 transition-all duration-300">
                   {/* Header */}
@@ -275,23 +271,18 @@ const Skills = () => {
                     <div className="text-3xl">{platform.icon}</div>
                     <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors" />
                   </div>
-                  
+
                   <h4 className="text-xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">
                     {platform.platform}
                   </h4>
-                  
+
                   {/* Stats */}
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-gray-400">Problems</span>
                       <span className="text-2xl font-bold gradient-text">{platform.problemsSolved}</span>
                     </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-400">Rating</span>
-                      <span className="text-lg font-semibold text-purple-400">{platform.rating}</span>
-                    </div>
-                    
+
                     {/* Progress Bar */}
                     <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
                       <motion.div
@@ -321,11 +312,11 @@ const Skills = () => {
             <h3 className="text-2xl font-bold text-white mb-2">Achievement Overview</h3>
             <p className="text-gray-400">Quantified excellence in development and problem-solving</p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: '900+', label: 'Problems Solved', color: 'text-blue-400' },
-              { value: '15+', label: 'Technologies', color: 'text-green-400' },
+              { value: '400+', label: 'Problems Solved', color: 'text-blue-400' },
+              { value: '10+', label: 'Technologies', color: 'text-green-400' },
               { value: '4', label: 'Platforms', color: 'text-purple-400' },
               { value: '2+', label: 'Years Experience', color: 'text-orange-400' }
             ].map((stat, index) => (
