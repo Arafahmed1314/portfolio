@@ -10,31 +10,26 @@ const Footer = () => {
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-5 h-5" />,
-      url: 'https://linkedin.com/in/araf',
+      url: 'https://www.linkedin.com/in/md-naimul-islam-068b9018b/',
       color: 'hover:text-blue-400'
     },
     {
       name: 'GitHub',
       icon: <Github className="w-5 h-5" />,
-      url: 'https://github.com/araf',
+      url: 'https://github.com/Arafahmed1314',
       color: 'hover:text-gray-300'
     },
     {
       name: 'Codeforces',
       icon: <div className="w-5 h-5 font-bold text-sm flex items-center justify-center">CF</div>,
-      url: 'https://codeforces.com/profile/araf',
+      url: 'https://codeforces.com/profile/Araf_ahmed',
       color: 'hover:text-blue-500'
     },
-    {
-      name: 'Twitter',
-      icon: <Twitter className="w-5 h-5" />,
-      url: 'https://twitter.com/araf',
-      color: 'hover:text-blue-400'
-    },
+
     {
       name: 'Email',
       icon: <Mail className="w-5 h-5" />,
-      url: 'mailto:araf@example.com',
+      url: 'mailto:nayemhasan1314@gmail.com',
       color: 'hover:text-purple-400'
     }
   ]
@@ -87,7 +82,7 @@ const Footer = () => {
             <div className="mb-6">
               <h3 className="text-2xl font-bold gradient-text mb-2">Araf</h3>
               <p className="text-gray-400 leading-relaxed max-w-md">
-                Full-Stack Developer passionate about creating innovative web solutions 
+                Full-Stack Developer passionate about creating innovative web solutions
                 and solving complex problems through clean, efficient code.
               </p>
             </div>
@@ -145,14 +140,14 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
             <div className="space-y-2 text-gray-400">
               <p>Dhaka, Bangladesh</p>
-              <a 
-                href="mailto:nayemhasan1314@gmail.com" 
+              <a
+                href="mailto:nayemhasan1314@gmail.com"
                 className="block hover:text-purple-400 transition-colors"
               >
                 nayemhasan1314@gmail.com
               </a>
-              <a 
-                href="tel:+880123456789" 
+              <a
+                href="tel:+880123456789"
                 className="block hover:text-purple-400 transition-colors"
               >
                 +880 123 456 789

@@ -219,8 +219,8 @@ const Projects = () => {
                       animationDelay: `${index * 0.1}s` 
                     }}
                   >
-                    {/* Project Image */}
-                    <div className="relative h-48 overflow-hidden flex-shrink-0">
+                    {/* Project Image - 50% of card height */}
+                    <div className="relative h-1/2 overflow-hidden flex-shrink-0">
                       <Image 
                         src={project.image} 
                         alt={project.title}
@@ -250,27 +250,27 @@ const Projects = () => {
                       </div>
                     </div>
 
-                    {/* Project Content */}
-                    <div className="p-6 flex-1 flex flex-col">
-                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                    {/* Project Content - 50% of card height */}
+                    <div className="p-6 h-1/2 flex flex-col">
+                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition-colors line-clamp-2">
                         {project.title}
                       </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
+                      <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 line-clamp-3">
                         {project.description}
                       </p>
                       
                       {/* Action Buttons */}
-                      <div className="flex gap-3 mt-auto">
+                      <div className="flex gap-2 mt-auto">
                         <motion.a
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           href={project.liveLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
+                          className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
                         >
                           <ExternalLink className="w-4 h-4" />
-                          <span className="text-sm font-semibold">Live Demo</span>
+                          <span className="text-xs font-semibold">Live Demo</span>
                         </motion.a>
                         <motion.a
                           whileHover={{ scale: 1.05 }}
@@ -278,10 +278,10 @@ const Projects = () => {
                           href={project.githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all duration-300"
+                          className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all duration-300"
                         >
                           <Github className="w-4 h-4" />
-                          <span className="text-sm font-semibold">Code</span>
+                          <span className="text-xs font-semibold">Code</span>
                         </motion.a>
                       </div>
                     </div>

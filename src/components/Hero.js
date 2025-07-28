@@ -69,7 +69,7 @@ const Hero = () => {
                                 <div className="w-full h-full rounded-full overflow-hidden bg-gray-800 relative">
                                     <Image
                                         src="/download.jpeg"
-                                        alt="Araf - Full Stack Developer"
+                                        alt="Naimul Islam - Full Stack Developer"
                                         fill
                                         className="object-cover"
                                         sizes="192px"
@@ -105,7 +105,7 @@ const Hero = () => {
                             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
                         >
                             Hi, I&apos;m{' '}
-                            <span className="gradient-text">Araf</span>
+                            <span className="gradient-text">Naimul Islam</span>
                         </motion.h1>
 
                         <motion.div

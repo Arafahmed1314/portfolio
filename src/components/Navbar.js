@@ -93,7 +93,7 @@ const Navbar = () => {
               }
             }}
           >
-            Araf
+            Naimul Islam
           </motion.div>
 
           {/* Desktop Navigation */}

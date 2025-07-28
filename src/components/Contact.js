@@ -27,23 +27,27 @@ const Contact = () => {
         setSubmitStatus(null)
 
         try {
-            // EmailJS configuration - Replace these with your actual EmailJS credentials
-            const serviceId = 'your_service_id'
-            const templateId = 'your_template_id'
-            const publicKey = 'your_public_key'
+            // EmailJS configuration - Using environment variables
+            const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+            const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+            const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
+            // Check if EmailJS is properly configured
+            if (!serviceId || !templateId || !publicKey) {
+                throw new Error('EmailJS not configured. Please check your environment variables.')
+            }
 
             const templateParams = {
                 from_name: formData.name,
                 from_email: formData.email,
                 message: formData.message,
-                to_name: 'Araf', // Your name
+                to_name: 'Naimul Islam', // Your name
+                to_email: 'nayemhasan1314@gmail.com', // Your email
+                reply_to: formData.email
             }
 
-            // Uncomment the line below and configure EmailJS properly
-            // await emailjs.send(serviceId, templateId, templateParams, publicKey)
-
-            // Simulate API call for demo purposes
-            await new Promise(resolve => setTimeout(resolve, 2000))
+            // Send email using EmailJS
+            await emailjs.send(serviceId, templateId, templateParams, publicKey)
 
             setSubmitStatus('success')
             setFormData({ name: '', email: '', message: '' })
@@ -66,8 +70,8 @@ const Contact = () => {
         {
             icon: <Phone className="w-6 h-6" />,
             title: 'Phone',
-            content: '+880 123 456 789',
-            link: 'tel:+880123456789'
+            content: '+880 1923531755',
+            link: 'tel:+8801923531755'
         },
         {
             icon: <MapPin className="w-6 h-6" />,
@@ -151,9 +155,10 @@ const Contact = () => {
                             <h4 className="text-lg font-semibold text-white mb-4">Follow Me</h4>
                             <div className="flex gap-4">
                                 {[
-                                    { name: 'LinkedIn', url: 'https://linkedin.com/in/araf' },
-                                    { name: 'GitHub', url: 'https://github.com/araf' },
-                                    { name: 'Twitter', url: 'https://twitter.com/araf' }
+                                    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/md-naimul-islam-068b9018b/' },
+                                    { name: 'GitHub', url: 'https://github.com/Arafahmed1314' },
+                                    { name: 'Codeforces', url: 'https://codeforces.com/profile/Araf_ahmed' },
+                                    { name: 'Facebook', url: 'https://www.facebook.com/Araf1314' }
                                 ].map((social) => (
                                     <motion.a
                                         key={social.name}
@@ -235,8 +240,8 @@ const Contact = () => {
                                 whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                                 whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
                                 className={`w-full py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all ${isSubmitting
-                                        ? 'bg-gray-600 cursor-not-allowed'
-                                        : 'btn-primary hover:shadow-lg'
+                                    ? 'bg-gray-600 cursor-not-allowed'
+                                    : 'btn-primary hover:shadow-lg'
                                     } text-white`}
                             >
                                 {isSubmitting ? (
@@ -259,8 +264,8 @@ const Contact = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 className={`mt-4 p-4 rounded-lg flex items-center gap-3 ${submitStatus === 'success'
-                                        ? 'bg-green-500/20 border border-green-500/30 text-green-300'
-                                        : 'bg-red-500/20 border border-red-500/30 text-red-300'
+                                    ? 'bg-green-500/20 border border-green-500/30 text-green-300'
+                                    : 'bg-red-500/20 border border-red-500/30 text-red-300'
                                     }`}
                             >
                                 {submitStatus === 'success' ? (

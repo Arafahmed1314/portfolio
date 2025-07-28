@@ -17,7 +17,7 @@ const BlogsPage = () => {
 
   const filteredBlogs = allBlogs.filter(blog => {
     const matchesSearch = blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+      blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
     const matchesCategory = selectedCategory === 'All' || blog.category === selectedCategory
     return matchesSearch && matchesCategory
   })
@@ -31,14 +31,14 @@ const BlogsPage = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <Link 
-            href="/#blog"
+          <Link
+            href="/"
             className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors mb-6"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Portfolio
           </Link>
-          
+
           <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
             All Blog Posts
           </h1>
@@ -146,7 +146,7 @@ const BlogsPage = () => {
                   {blog.excerpt}
                 </p>
 
-                <Link 
+                <Link
                   href={`/blogs/${blog.slug}`}
                   className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors font-semibold"
                 >

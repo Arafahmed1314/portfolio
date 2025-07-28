@@ -8,20 +8,20 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'Araf - Full-Stack Developer',
-  description: 'Portfolio of Araf, a passionate Full-Stack Developer specializing in modern web technologies including React, Next.js, Node.js, and more.',
+  title: 'Naimul Islam - Full-Stack Developer',
+  description: 'Portfolio of Naimul Islam, a passionate Full-Stack Developer specializing in modern web technologies including React, Next.js, Node.js, and more.',
   keywords: 'Full-Stack Developer, React, Next.js, Node.js, MongoDB, JavaScript, Web Developer, Portfolio',
-  author: 'Araf',
+  author: 'Naimul Islam',
   openGraph: {
-    title: 'Araf - Full-Stack Developer',
-    description: 'Portfolio of Araf, a passionate Full-Stack Developer',
+    title: 'Naimul Islam - Full-Stack Developer',
+    description: 'Portfolio of Naimul Islam, a passionate Full-Stack Developer',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Araf - Full-Stack Developer',
-    description: 'Portfolio of Araf, a passionate Full-Stack Developer',
+    title: 'Naimul Islam - Full-Stack Developer',
+    description: 'Portfolio of Naimul Islam, a passionate Full-Stack Developer',
   },
 }
 
