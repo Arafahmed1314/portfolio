@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useRouter, usePathname } from 'next/navigation'
+import ThemeToggle from './ThemeToggle'
+import { useTheme } from '../contexts/ThemeContext'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,6 +13,7 @@ const Navbar = () => {
   const navRef = useRef(null)
   const router = useRouter()
   const pathname = usePathname()
+  const { isDark } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,7 +79,10 @@ const Navbar = () => {
       ref={navRef}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${scrolled ? 'glass-dark py-2' : 'py-4'
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
+        scrolled 
+          ? `glass py-2 ${isDark ? 'glass-dark' : 'glass-light'}` 
+          : 'py-4'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,19 +110,31 @@ const Navbar = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleNavigation(item)}
-                className="text-gray-300 hover:text-white transition-colors duration-200"
+                className={`transition-colors duration-200 ${
+                  isDark 
+                    ? 'text-gray-300 hover:text-white' 
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
               >
                 {item.name}
               </motion.button>
             ))}
+            
+            {/* Theme Toggle */}
+            <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden z-50">
+          {/* Mobile Menu Button & Theme Toggle */}
+          <div className="md:hidden flex items-center space-x-3 z-50">
+            <ThemeToggle />
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white p-2 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700/50"
+              className={`p-2 rounded-lg backdrop-blur-sm border transition-colors ${
+                isDark 
+                  ? 'text-white bg-gray-800/50 border-gray-700/50' 
+                  : 'text-gray-900 bg-white/50 border-gray-300/50'
+              }`}
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -141,7 +159,11 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 glass-dark rounded-lg p-4 border border-gray-700/50 shadow-xl z-40"
+              className={`md:hidden absolute top-full left-0 right-0 mt-2 mx-4 glass rounded-lg p-4 border shadow-xl z-40 ${
+                isDark 
+                  ? 'border-gray-700/50' 
+                  : 'border-gray-300/50'
+              }`}
             >
               {navItems.map((item, index) => (
                 <motion.button
@@ -150,7 +172,11 @@ const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => handleNavigation(item)}
-                  className="block w-full text-left text-gray-300 hover:text-white py-3 px-2 transition-colors duration-200 hover:bg-gray-700/30 rounded-lg"
+                  className={`block w-full text-left py-3 px-2 transition-colors duration-200 rounded-lg ${
+                    isDark 
+                      ? 'text-gray-300 hover:text-white hover:bg-gray-700/30' 
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/30'
+                  }`}
                 >
                   {item.name}
                 </motion.button>

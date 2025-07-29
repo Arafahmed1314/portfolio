@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Twitter, Mail, Heart, ArrowUp } from 'lucide-react'
+import { useTheme } from '../contexts/ThemeContext'
 
 const Footer = () => {
+  const { isDark } = useTheme()
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [

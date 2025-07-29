@@ -4,11 +4,13 @@ import { motion } from 'framer-motion'
 import { ChevronDown, Download, Mail } from 'lucide-react'
 import { useState, useEffect, useMemo } from 'react'
 import Image from 'next/image'
+import { useTheme } from '../contexts/ThemeContext'
 
 const Hero = () => {
     const [displayText, setDisplayText] = useState('')
     const roles = useMemo(() => ['Full-Stack Developer', 'React Developer', 'Node.js Developer', 'Problem Solver'], [])
     const [currentRole, setCurrentRole] = useState(0)
+    const { isDark } = useTheme()
 
     useEffect(() => {
         const typeWriter = () => {
@@ -78,13 +80,13 @@ const Hero = () => {
                                 </div>
                             </div>
                             <div className="text-left space-y-2">
-                                <p className="flex gap-2 text-gray-300">
+                                <p className={`flex gap-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                                     🎯 <span>Problem Solver</span>
                                 </p>
-                                <p className="flex  gap-2 text-gray-300">
+                                <p className={`flex  gap-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                                     💻 <span>Dedicated</span>
                                 </p>
-                                <p className="flex   gap-2 text-gray-300">
+                                <p className={`flex   gap-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                                     🚀 <span>Hard Worker</span>
                                 </p>
                             </div>
@@ -102,7 +104,9 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+                            className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-6 ${
+                                isDark ? 'text-white' : 'text-gray-900'
+                            }`}
                         >
                             Hi, I&apos;m{' '}
                             <span className="gradient-text">Naimul Islam</span>
@@ -112,7 +116,9 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
-                            className="text-xl md:text-3xl text-gray-300 mb-8 h-12"
+                            className={`text-xl md:text-3xl mb-8 h-12 ${
+                                isDark ? 'text-gray-300' : 'text-gray-600'
+                            }`}
                         >
                             <span>A </span>
                             <span className="gradient-text-secondary font-semibold">
@@ -125,7 +131,9 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.8 }}
-                            className="text-lg md:text-xl text-gray-400 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0"
+                            className={`text-lg md:text-xl leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 ${
+                                isDark ? 'text-gray-400' : 'text-gray-600'
+                            }`}
                         >
                             Passionate about creating innovative web solutions with modern technologies.
                             I build scalable applications using React, Next.js, Node.js, and more.
@@ -173,7 +181,7 @@ const Hero = () => {
                 <motion.div
                     animate={{ y: [0, 10, 0] }}
                     transition={{ repeat: Infinity, duration: 2 }}
-                    className="text-gray-400 cursor-pointer"
+                    className={`cursor-pointer ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
                     onClick={() => scrollToSection('#skills')}
                 >
                     <ChevronDown size={32} />

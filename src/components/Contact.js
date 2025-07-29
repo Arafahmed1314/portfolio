@@ -4,8 +4,10 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
 import emailjs from '@emailjs/browser'
+import { useTheme } from '../contexts/ThemeContext'
 
 const Contact = () => {
+    const { isDark } = useTheme()
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -94,7 +96,9 @@ const Contact = () => {
                     <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
                         Get In Touch
                     </h2>
-                    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                    <p className={`text-xl max-w-3xl mx-auto ${
+                        isDark ? 'text-gray-400' : 'text-gray-600'
+                    }`}>
                         Have a project in mind or want to collaborate? I&apos;d love to hear from you.
                         Let&apos;s create something amazing together!
                     </p>
@@ -109,8 +113,12 @@ const Contact = () => {
                         className="space-y-8"
                     >
                         <div>
-                            <h3 className="text-2xl font-bold text-white mb-6">Let&apos;s Connect</h3>
-                            <p className="text-gray-400 leading-relaxed">
+                            <h3 className={`text-2xl font-bold mb-6 ${
+                                isDark ? 'text-white' : 'text-gray-900'
+                            }`}>Let&apos;s Connect</h3>
+                            <p className={`leading-relaxed ${
+                                isDark ? 'text-gray-400' : 'text-gray-600'
+                            }`}>
                                 I&apos;m always interested in hearing about new opportunities,
                                 collaborative projects, or just having a chat about technology and development.
                                 Feel free to reach out through any of the channels below.
@@ -136,8 +144,14 @@ const Contact = () => {
                                         {info.icon}
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-semibold">{info.title}</h4>
-                                        <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                                        <h4 className={`font-semibold ${
+                                            isDark ? 'text-white' : 'text-gray-900'
+                                        }`}>{info.title}</h4>
+                                        <p className={`transition-colors ${
+                                            isDark 
+                                                ? 'text-gray-400 group-hover:text-gray-300' 
+                                                : 'text-gray-600 group-hover:text-gray-500'
+                                        }`}>
                                             {info.content}
                                         </p>
                                     </div>
@@ -152,7 +166,9 @@ const Contact = () => {
                             viewport={{ once: true }}
                             className="pt-8"
                         >
-                            <h4 className="text-lg font-semibold text-white mb-4">Follow Me</h4>
+                            <h4 className={`text-lg font-semibold mb-4 ${
+                                isDark ? 'text-white' : 'text-gray-900'
+                            }`}>Follow Me</h4>
                             <div className="flex gap-4">
                                 {[
                                     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/md-naimul-islam-068b9018b/' },
@@ -167,7 +183,11 @@ const Contact = () => {
                                         rel="noopener noreferrer"
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="glass rounded-lg px-4 py-2 text-gray-300 hover:text-purple-400 transition-colors"
+                                        className={`glass rounded-lg px-4 py-2 transition-colors ${
+                                            isDark 
+                                                ? 'text-gray-300 hover:text-purple-400' 
+                                                : 'text-gray-600 hover:text-purple-600'
+                                        }`}
                                     >
                                         {social.name}
                                     </motion.a>
@@ -183,11 +203,15 @@ const Contact = () => {
                         viewport={{ once: true }}
                         className="glass rounded-2xl p-8"
                     >
-                        <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
+                        <h3 className={`text-2xl font-bold mb-6 ${
+                            isDark ? 'text-white' : 'text-gray-900'
+                        }`}>Send a Message</h3>
 
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
-                                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                                <label htmlFor="name" className={`block text-sm font-medium mb-2 ${
+                                    isDark ? 'text-gray-300' : 'text-gray-700'
+                                }`}>
                                     Your Name
                                 </label>
                                 <input
@@ -197,13 +221,19 @@ const Contact = () => {
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-colors"
+                                    className={`w-full px-4 py-3 border rounded-lg transition-colors focus:ring-2 focus:ring-purple-500/20 ${
+                                        isDark 
+                                            ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-purple-500' 
+                                            : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-purple-500'
+                                    }`}
                                     placeholder="Enter your full name"
                                 />
                             </div>
 
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                                <label htmlFor="email" className={`block text-sm font-medium mb-2 ${
+                                    isDark ? 'text-gray-300' : 'text-gray-700'
+                                }`}>
                                     Email Address
                                 </label>
                                 <input
@@ -213,13 +243,19 @@ const Contact = () => {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-colors"
+                                    className={`w-full px-4 py-3 border rounded-lg transition-colors focus:ring-2 focus:ring-purple-500/20 ${
+                                        isDark 
+                                            ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-purple-500' 
+                                            : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-purple-500'
+                                    }`}
                                     placeholder="your.email@example.com"
                                 />
                             </div>
 
                             <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                                <label htmlFor="message" className={`block text-sm font-medium mb-2 ${
+                                    isDark ? 'text-gray-300' : 'text-gray-700'
+                                }`}>
                                     Message
                                 </label>
                                 <textarea
@@ -229,7 +265,11 @@ const Contact = () => {
                                     onChange={handleChange}
                                     required
                                     rows={5}
-                                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-colors resize-none"
+                                    className={`w-full px-4 py-3 border rounded-lg transition-colors resize-none focus:ring-2 focus:ring-purple-500/20 ${
+                                        isDark 
+                                            ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-purple-500' 
+                                            : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-purple-500'
+                                    }`}
                                     placeholder="Tell me about your project or just say hello..."
                                 />
                             </div>

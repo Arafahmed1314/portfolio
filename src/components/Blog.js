@@ -6,8 +6,10 @@ import { ChevronLeft, ChevronRight, Calendar, Clock, ArrowRight, BookOpen } from
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import blogsData from '../data/blogs.json'
+import { useTheme } from '../contexts/ThemeContext'
 
 const Blog = () => {
+  const { isDark } = useTheme()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const [dragStart, setDragStart] = useState(null)
@@ -149,7 +151,9 @@ const Blog = () => {
           <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
             Blog & Articles
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className={`text-xl max-w-3xl mx-auto ${
+            isDark ? 'text-gray-400' : 'text-gray-600'
+          }`}>
             Sharing insights, experiences, and knowledge about web development, university life, and career growth
           </p>
         </motion.div>
@@ -169,7 +173,7 @@ const Blog = () => {
                   : 'hover:bg-purple-500/20 hover:scale-110'
               }`}
             >
-              <ChevronLeft className="w-6 h-6 text-white" />
+              <ChevronLeft className={`w-6 h-6 ${isDark ? 'text-white' : 'text-gray-900'}`} />
             </motion.button>
             
             <div className="flex space-x-2">
@@ -177,7 +181,9 @@ const Blog = () => {
                 <motion.div
                   key={i}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    i === currentIndex ? 'bg-purple-500 w-8' : 'bg-gray-600 w-2'
+                    i === currentIndex 
+                      ? 'bg-purple-500 w-8' 
+                      : `w-2 ${isDark ? 'bg-gray-600' : 'bg-gray-400'}`
                   }`}
                   whileHover={{ scale: 1.2 }}
                 />
@@ -195,7 +201,7 @@ const Blog = () => {
                   : 'hover:bg-purple-500/20 hover:scale-110'
               }`}
             >
-              <ChevronRight className="w-6 h-6 text-white" />
+              <ChevronRight className={`w-6 h-6 ${isDark ? 'text-white' : 'text-gray-900'}`} />
             </motion.button>
           </div>
 
@@ -251,7 +257,9 @@ const Blog = () => {
 
                     {/* Blog Content */}
                     <div className="p-6 flex-1 flex flex-col">
-                      <div className="flex items-center gap-4 text-sm text-gray-400 mb-3">
+                      <div className={`flex items-center gap-4 text-sm mb-3 ${
+                        isDark ? 'text-gray-400' : 'text-gray-600'
+                      }`}>
                         <div className="flex items-center gap-1">
                           <Calendar className="w-4 h-4" />
                           {formatDate(post.date)}
@@ -262,15 +270,25 @@ const Blog = () => {
                         </div>
                       </div>
 
-                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                      <h3 className={`text-xl font-bold mb-3 transition-colors ${
+                        isDark 
+                          ? 'text-white group-hover:text-purple-400' 
+                          : 'text-gray-900 group-hover:text-purple-600'
+                      }`}>
                         {post.title}
                       </h3>
 
-                      <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
+                      <p className={`text-sm leading-relaxed mb-6 flex-1 ${
+                        isDark ? 'text-gray-400' : 'text-gray-600'
+                      }`}>
                         {post.excerpt}
                       </p>
 
-                      <div className="flex items-center text-purple-400 group-hover:text-purple-300 transition-colors mt-auto">
+                      <div className={`flex items-center transition-colors mt-auto ${
+                        isDark 
+                          ? 'text-purple-400 group-hover:text-purple-300' 
+                          : 'text-purple-600 group-hover:text-purple-700'
+                      }`}>
                         <span className="text-sm font-semibold">Read More</span>
                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -288,7 +306,9 @@ const Blog = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <p className="text-gray-400 text-sm">
+            <p className={`text-sm ${
+              isDark ? 'text-gray-400' : 'text-gray-600'
+            }`}>
               {currentIndex + 1} - {Math.min(currentIndex + itemsPerView, blogPosts.length)} of {blogPosts.length} articles
             </p>
           </motion.div>

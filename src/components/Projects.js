@@ -5,8 +5,10 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react'
 import Image from 'next/image'
 import projectsData from '../data/projects.json'
+import { useTheme } from '../contexts/ThemeContext'
 
 const Projects = () => {
+  const { isDark } = useTheme()
   const projects = projectsData.projects
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
@@ -141,7 +143,9 @@ const Projects = () => {
           <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className={`text-xl max-w-3xl mx-auto ${
+            isDark ? 'text-gray-400' : 'text-gray-600'
+          }`}>
             A showcase of my recent work and side projects, demonstrating various technologies and design patterns
           </p>
         </motion.div>
@@ -161,7 +165,7 @@ const Projects = () => {
                   : 'hover:bg-purple-500/20 hover:scale-110'
               }`}
             >
-              <ChevronLeft className="w-6 h-6 text-white" />
+              <ChevronLeft className={`w-6 h-6 ${isDark ? 'text-white' : 'text-gray-900'}`} />
             </motion.button>
             
             <div className="flex space-x-2">
@@ -169,7 +173,9 @@ const Projects = () => {
                 <motion.div
                   key={i}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    i === currentIndex ? 'bg-purple-500 w-8' : 'bg-gray-600 w-2'
+                    i === currentIndex 
+                      ? 'bg-purple-500 w-8' 
+                      : `w-2 ${isDark ? 'bg-gray-600' : 'bg-gray-400'}`
                   }`}
                   whileHover={{ scale: 1.2 }}
                 />
@@ -187,7 +193,7 @@ const Projects = () => {
                   : 'hover:bg-purple-500/20 hover:scale-110'
               }`}
             >
-              <ChevronRight className="w-6 h-6 text-white" />
+              <ChevronRight className={`w-6 h-6 ${isDark ? 'text-white' : 'text-gray-900'}`} />
             </motion.button>
           </div>
 
@@ -252,10 +258,16 @@ const Projects = () => {
 
                     {/* Project Content - 50% of card height */}
                     <div className="p-6 h-1/2 flex flex-col">
-                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition-colors line-clamp-2">
+                      <h3 className={`text-lg font-bold mb-2 transition-colors line-clamp-2 ${
+                        isDark 
+                          ? 'text-white group-hover:text-purple-400' 
+                          : 'text-gray-900 group-hover:text-purple-600'
+                      }`}>
                         {project.title}
                       </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 line-clamp-3">
+                      <p className={`text-sm leading-relaxed mb-4 flex-1 line-clamp-3 ${
+                        isDark ? 'text-gray-400' : 'text-gray-600'
+                      }`}>
                         {project.description}
                       </p>
                       
@@ -314,7 +326,7 @@ const Projects = () => {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="https://github.com/araf"
+            href="https://github.com/Arafahmed1314"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary text-white px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2 shadow-lg"

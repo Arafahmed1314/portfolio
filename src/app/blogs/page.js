@@ -6,10 +6,12 @@ import { Calendar, Clock, ArrowLeft, Search, Filter } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import blogsData from '../../data/blogs.json'
+import { useTheme } from '../../contexts/ThemeContext'
 
 const BlogsPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
+  const { isDark } = useTheme()
 
   const allBlogs = blogsData.blogs
 
@@ -33,7 +35,11 @@ const BlogsPage = () => {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors mb-6"
+            className={`inline-flex items-center gap-2 transition-colors mb-6 ${
+              isDark 
+                ? 'text-purple-400 hover:text-purple-300' 
+                : 'text-purple-600 hover:text-purple-700'
+            }`}
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Portfolio
@@ -42,7 +48,9 @@ const BlogsPage = () => {
           <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
             All Blog Posts
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className={`text-xl max-w-3xl mx-auto ${
+            isDark ? 'text-gray-400' : 'text-gray-600'
+          }`}>
             Dive deeper into web development, career advice, and technology insights
           </p>
         </motion.div>
@@ -56,23 +64,35 @@ const BlogsPage = () => {
         >
           {/* Search Bar */}
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 ${
+              isDark ? 'text-gray-400' : 'text-gray-600'
+            }`} />
             <input
               type="text"
               placeholder="Search blog posts..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-colors"
+              className={`w-full pl-10 pr-4 py-3 border rounded-lg transition-colors focus:ring-2 focus:ring-purple-500/20 ${
+                isDark 
+                  ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-purple-500' 
+                  : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-purple-500'
+              }`}
             />
           </div>
 
           {/* Category Filter */}
           <div className="relative">
-            <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Filter className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 ${
+              isDark ? 'text-gray-400' : 'text-gray-600'
+            }`} />
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="pl-10 pr-8 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-colors appearance-none"
+              className={`pl-10 pr-8 py-3 border rounded-lg transition-colors appearance-none focus:ring-2 focus:ring-purple-500/20 ${
+                isDark 
+                  ? 'bg-gray-800 border-gray-700 text-white focus:border-purple-500' 
+                  : 'bg-white border-gray-300 text-gray-900 focus:border-purple-500'
+              }`}
             >
               {categories.map(category => (
                 <option key={category} value={category}>{category}</option>
@@ -88,7 +108,7 @@ const BlogsPage = () => {
           transition={{ delay: 0.3 }}
           className="mb-8"
         >
-          <p className="text-gray-400">
+          <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>
             {filteredBlogs.length} {filteredBlogs.length === 1 ? 'post' : 'posts'} found
           </p>
         </motion.div>
@@ -127,7 +147,9 @@ const BlogsPage = () => {
 
               {/* Blog Content */}
               <div className="p-6">
-                <div className="flex items-center gap-4 text-gray-400 text-sm mb-3">
+                <div className={`flex items-center gap-4 text-sm mb-3 ${
+                  isDark ? 'text-gray-400' : 'text-gray-600'
+                }`}>
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     <span>{new Date(blog.date).toLocaleDateString()}</span>
@@ -138,17 +160,27 @@ const BlogsPage = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                <h3 className={`text-xl font-bold mb-3 transition-colors ${
+                  isDark 
+                    ? 'text-white group-hover:text-purple-400' 
+                    : 'text-gray-900 group-hover:text-purple-600'
+                }`}>
                   {blog.title}
                 </h3>
 
-                <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                <p className={`text-sm mb-4 leading-relaxed ${
+                  isDark ? 'text-gray-400' : 'text-gray-600'
+                }`}>
                   {blog.excerpt}
                 </p>
 
                 <Link
                   href={`/blogs/${blog.slug}`}
-                  className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors font-semibold"
+                  className={`inline-flex items-center transition-colors font-semibold ${
+                    isDark 
+                      ? 'text-purple-400 hover:text-purple-300' 
+                      : 'text-purple-600 hover:text-purple-700'
+                  }`}
                 >
                   Read Full Article
                   <ArrowLeft className="w-4 h-4 ml-2 rotate-180 group-hover:translate-x-1 transition-transform" />
@@ -165,9 +197,11 @@ const BlogsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center py-20"
           >
-            <div className="text-gray-400 mb-4">
+            <div className={isDark ? 'text-gray-400' : 'text-gray-600'}>
               <Search className="w-16 h-16 mx-auto mb-4 opacity-50" />
-              <h3 className="text-2xl font-bold mb-2">No posts found</h3>
+              <h3 className={`text-2xl font-bold mb-2 ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>No posts found</h3>
               <p>Try adjusting your search terms or category filter.</p>
             </div>
           </motion.div>

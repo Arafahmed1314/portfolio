@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { Code2, Database, Globe, Trophy, ExternalLink, Star, Award, Target, Zap } from 'lucide-react'
+import { useTheme } from '../contexts/ThemeContext'
 
 const Skills = () => {
+  const { isDark } = useTheme()
   const skillCategories = [
     {
       title: 'Frontend Development',
@@ -126,7 +128,9 @@ const Skills = () => {
             </h2>
             <Zap className="w-8 h-8 text-yellow-500" />
           </div>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className={`text-xl max-w-3xl mx-auto ${
+            isDark ? 'text-gray-400' : 'text-gray-600'
+          }`}>
             Cutting-edge technologies and problem-solving prowess
           </p>
         </motion.div>
@@ -174,10 +178,16 @@ const Skills = () => {
                       whileHover={{ scale: 1.05, rotateY: 5 }}
                       className="relative"
                     >
-                      <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-4 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300">
+                      <div className={`rounded-xl p-4 border transition-all duration-300 ${
+                        isDark 
+                          ? 'bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-gray-700/50 hover:border-purple-500/50'
+                          : 'bg-gradient-to-br from-white/80 to-gray-50/80 border-gray-300/50 hover:border-purple-500/50'
+                      }`}>
                         <div className="text-center">
                           <div className="text-2xl mb-2">{skill.icon}</div>
-                          <div className="text-sm font-semibold text-white mb-2">{skill.name}</div>
+                          <div className={`text-sm font-semibold mb-2 ${
+                            isDark ? 'text-white' : 'text-gray-900'
+                          }`}>{skill.name}</div>
 
                           {/* Circular Progress */}
                           <div className="relative w-12 h-12 mx-auto">
@@ -213,7 +223,9 @@ const Skills = () => {
                               </defs>
                             </svg>
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-xs font-bold text-purple-400">{skill.level}%</span>
+                              <span className={`text-xs font-bold ${
+                                isDark ? 'text-purple-400' : 'text-purple-600'
+                              }`}>{skill.level}%</span>
                             </div>
                           </div>
                         </div>
@@ -241,7 +253,9 @@ const Skills = () => {
               </h3>
               <Award className="w-8 h-8 text-yellow-500" />
             </div>
-            <p className="text-lg text-gray-400">
+            <p className={`text-lg ${
+              isDark ? 'text-gray-400' : 'text-gray-600'
+            }`}>
               Problem-solving mastery across global platforms
             </p>
           </div>
@@ -269,22 +283,32 @@ const Skills = () => {
                   {/* Header */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="text-3xl">{platform.icon}</div>
-                    <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors" />
+                    <ExternalLink className={`w-5 h-5 transition-colors ${
+                      isDark 
+                        ? 'text-gray-400 group-hover:text-purple-400' 
+                        : 'text-gray-600 group-hover:text-purple-600'
+                    }`} />
                   </div>
 
-                  <h4 className="text-xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">
+                  <h4 className={`text-xl font-bold mb-4 transition-colors ${
+                    isDark 
+                      ? 'text-white group-hover:text-purple-400' 
+                      : 'text-gray-900 group-hover:text-purple-600'
+                  }`}>
                     {platform.platform}
                   </h4>
 
                   {/* Stats */}
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-400">Problems</span>
+                      <span className={isDark ? 'text-gray-400' : 'text-gray-600'}>Problems</span>
                       <span className="text-2xl font-bold gradient-text">{platform.problemsSolved}</span>
                     </div>
 
                     {/* Progress Bar */}
-                    <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                    <div className={`w-full rounded-full h-2 overflow-hidden ${
+                      isDark ? 'bg-gray-700' : 'bg-gray-300'
+                    }`}>
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${Math.min((platform.rating / 2000) * 100, 100)}%` }}
@@ -309,8 +333,10 @@ const Skills = () => {
         >
           <div className="text-center mb-8">
             <Target className="w-8 h-8 text-purple-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-white mb-2">Achievement Overview</h3>
-            <p className="text-gray-400">Quantified excellence in development and problem-solving</p>
+            <h3 className={`text-2xl font-bold mb-2 ${
+              isDark ? 'text-white' : 'text-gray-900'
+            }`}>Achievement Overview</h3>
+            <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>Quantified excellence in development and problem-solving</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -329,7 +355,9 @@ const Skills = () => {
                 className="text-center"
               >
                 <div className={`text-4xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
-                <div className="text-gray-400 text-sm">{stat.label}</div>
+                <div className={`text-sm ${
+                  isDark ? 'text-gray-400' : 'text-gray-600'
+                }`}>{stat.label}</div>
               </motion.div>
             ))}
           </div>
