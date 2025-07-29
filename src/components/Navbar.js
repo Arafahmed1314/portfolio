@@ -86,11 +86,11 @@ const Navbar = () => {
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between min-h-[64px]">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold gradient-text cursor-pointer z-50"
+            className="text-xl sm:text-2xl font-bold gradient-text cursor-pointer z-50 truncate max-w-[200px] sm:max-w-none"
             onClick={() => {
               if (pathname !== '/') {
                 router.push('/')
@@ -125,19 +125,19 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button & Theme Toggle */}
-          <div className="md:hidden flex items-center space-x-3 z-50">
+          <div className="md:hidden flex items-center space-x-2 z-50">
             <ThemeToggle />
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-lg backdrop-blur-sm border transition-colors ${
+              className={`p-3 rounded-lg backdrop-blur-sm border transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center ${
                 isDark 
                   ? 'text-white bg-gray-800/50 border-gray-700/50' 
                   : 'text-gray-900 bg-white/50 border-gray-300/50'
               }`}
               aria-label="Toggle menu"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
             </motion.button>
           </div>
         </div>
@@ -156,31 +156,33 @@ const Navbar = () => {
 
             {/* Menu */}
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className={`md:hidden absolute top-full left-0 right-0 mt-2 mx-4 glass rounded-lg p-4 border shadow-xl z-40 ${
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              className={`md:hidden absolute top-full left-4 right-4 mt-2 glass rounded-xl p-4 border shadow-2xl z-40 max-w-sm mx-auto ${
                 isDark 
                   ? 'border-gray-700/50' 
                   : 'border-gray-300/50'
               }`}
             >
-              {navItems.map((item, index) => (
-                <motion.button
-                  key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => handleNavigation(item)}
-                  className={`block w-full text-left py-3 px-2 transition-colors duration-200 rounded-lg ${
-                    isDark 
-                      ? 'text-gray-300 hover:text-white hover:bg-gray-700/30' 
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/30'
-                  }`}
-                >
-                  {item.name}
-                </motion.button>
-              ))}
+              <div className="space-y-2">
+                {navItems.map((item, index) => (
+                  <motion.button
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    onClick={() => handleNavigation(item)}
+                    className={`block w-full text-left py-3 px-4 transition-colors duration-200 rounded-lg text-base font-medium ${
+                      isDark 
+                        ? 'text-gray-300 hover:text-white hover:bg-gray-700/30' 
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/30'
+                    }`}
+                  >
+                    {item.name}
+                  </motion.button>
+                ))}
+              </div>
             </motion.div>
           </>
         )}

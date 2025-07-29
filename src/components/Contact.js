@@ -84,19 +84,19 @@ const Contact = () => {
     ]
 
     return (
-        <section id="contact" className="py-20 relative">
+        <section id="contact" className="py-12 md:py-20 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-12 md:mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-4">
                         Get In Touch
                     </h2>
-                    <p className={`text-xl max-w-3xl mx-auto ${
+                    <p className={`text-lg md:text-xl max-w-3xl mx-auto ${
                         isDark ? 'text-gray-400' : 'text-gray-600'
                     }`}>
                         Have a project in mind or want to collaborate? I&apos;d love to hear from you.
@@ -104,7 +104,7 @@ const Contact = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                     {/* Contact Information */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -126,7 +126,7 @@ const Contact = () => {
                         </div>
 
                         {/* Contact Cards */}
-                        <div className="space-y-4">
+                        <div className="space-y-3 md:space-y-4">
                             {contactInfo.map((info, index) => (
                                 <motion.a
                                     key={info.title}
@@ -138,16 +138,16 @@ const Contact = () => {
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
                                     whileHover={{ scale: 1.02 }}
-                                    className="glass rounded-xl p-6 flex items-center gap-4 card-hover group"
+                                    className="glass rounded-xl p-4 md:p-6 flex items-center gap-3 md:gap-4 card-hover group min-h-[60px]"
                                 >
-                                    <div className="text-purple-400 group-hover:text-purple-300 transition-colors">
+                                    <div className="text-purple-400 group-hover:text-purple-300 transition-colors flex-shrink-0">
                                         {info.icon}
                                     </div>
-                                    <div>
-                                        <h4 className={`font-semibold ${
+                                    <div className="min-w-0 flex-1">
+                                        <h4 className={`font-semibold text-sm md:text-base ${
                                             isDark ? 'text-white' : 'text-gray-900'
                                         }`}>{info.title}</h4>
-                                        <p className={`transition-colors ${
+                                        <p className={`text-sm md:text-base transition-colors truncate ${
                                             isDark 
                                                 ? 'text-gray-400 group-hover:text-gray-300' 
                                                 : 'text-gray-600 group-hover:text-gray-500'
@@ -164,12 +164,12 @@ const Contact = () => {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="pt-8"
+                            className="pt-6 md:pt-8"
                         >
-                            <h4 className={`text-lg font-semibold mb-4 ${
+                            <h4 className={`text-base md:text-lg font-semibold mb-3 md:mb-4 ${
                                 isDark ? 'text-white' : 'text-gray-900'
                             }`}>Follow Me</h4>
-                            <div className="flex gap-4">
+                            <div className="flex flex-wrap gap-2 md:gap-4">
                                 {[
                                     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/md-naimul-islam-068b9018b/' },
                                     { name: 'GitHub', url: 'https://github.com/Arafahmed1314' },
@@ -183,7 +183,7 @@ const Contact = () => {
                                         rel="noopener noreferrer"
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className={`glass rounded-lg px-4 py-2 transition-colors ${
+                                        className={`glass rounded-lg px-3 md:px-4 py-2 transition-colors text-sm md:text-base min-h-[40px] flex items-center ${
                                             isDark 
                                                 ? 'text-gray-300 hover:text-purple-400' 
                                                 : 'text-gray-600 hover:text-purple-600'
@@ -201,13 +201,13 @@ const Contact = () => {
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="glass rounded-2xl p-8"
+                        className="glass rounded-2xl p-6 md:p-8"
                     >
-                        <h3 className={`text-2xl font-bold mb-6 ${
+                        <h3 className={`text-xl md:text-2xl font-bold mb-4 md:mb-6 ${
                             isDark ? 'text-white' : 'text-gray-900'
                         }`}>Send a Message</h3>
 
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                             <div>
                                 <label htmlFor="name" className={`block text-sm font-medium mb-2 ${
                                     isDark ? 'text-gray-300' : 'text-gray-700'
@@ -221,7 +221,7 @@ const Contact = () => {
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
-                                    className={`w-full px-4 py-3 border rounded-lg transition-colors focus:ring-2 focus:ring-purple-500/20 ${
+                                    className={`w-full px-3 md:px-4 py-2.5 md:py-3 border rounded-lg transition-colors focus:ring-2 focus:ring-purple-500/20 text-base ${
                                         isDark 
                                             ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-purple-500' 
                                             : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-purple-500'
@@ -243,7 +243,7 @@ const Contact = () => {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
-                                    className={`w-full px-4 py-3 border rounded-lg transition-colors focus:ring-2 focus:ring-purple-500/20 ${
+                                    className={`w-full px-3 md:px-4 py-2.5 md:py-3 border rounded-lg transition-colors focus:ring-2 focus:ring-purple-500/20 text-base ${
                                         isDark 
                                             ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-purple-500' 
                                             : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-purple-500'
@@ -264,8 +264,8 @@ const Contact = () => {
                                     value={formData.message}
                                     onChange={handleChange}
                                     required
-                                    rows={5}
-                                    className={`w-full px-4 py-3 border rounded-lg transition-colors resize-none focus:ring-2 focus:ring-purple-500/20 ${
+                                    rows={4}
+                                    className={`w-full px-3 md:px-4 py-2.5 md:py-3 border rounded-lg transition-colors resize-none focus:ring-2 focus:ring-purple-500/20 text-base ${
                                         isDark 
                                             ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-purple-500' 
                                             : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-purple-500'
@@ -279,7 +279,7 @@ const Contact = () => {
                                 disabled={isSubmitting}
                                 whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                                 whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                                className={`w-full py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all ${isSubmitting
+                                className={`w-full py-3 md:py-3.5 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all min-h-[48px] text-base ${isSubmitting
                                     ? 'bg-gray-600 cursor-not-allowed'
                                     : 'btn-primary hover:shadow-lg'
                                     } text-white`}

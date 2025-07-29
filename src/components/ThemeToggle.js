@@ -13,7 +13,7 @@ const ThemeToggle = () => {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={`
-        relative p-3 rounded-full transition-all duration-300 ease-in-out
+        relative p-2.5 sm:p-3 rounded-full transition-all duration-300 ease-in-out min-w-[44px] min-h-[44px] flex items-center justify-center
         ${isDark 
           ? 'bg-gray-800 hover:bg-gray-700 text-yellow-400 hover:text-yellow-300' 
           : 'bg-gray-200 hover:bg-gray-300 text-purple-600 hover:text-purple-700'
@@ -30,12 +30,12 @@ const ThemeToggle = () => {
           scale: isDark ? 1 : 0.8 
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="relative w-6 h-6"
+        className="relative w-5 h-5 sm:w-6 sm:h-6"
       >
         {isDark ? (
-          <Sun className="w-6 h-6" />
+          <Sun className="w-5 h-5 sm:w-6 sm:h-6" />
         ) : (
-          <Moon className="w-6 h-6" />
+          <Moon className="w-5 h-5 sm:w-6 sm:h-6" />
         )}
       </motion.div>
       
