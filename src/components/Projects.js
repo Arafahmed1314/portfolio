@@ -131,14 +131,14 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="py-20 relative">
+    <section id="projects" className="py-12 md:py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
             Featured Projects

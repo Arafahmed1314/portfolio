@@ -49,7 +49,7 @@ const Hero = () => {
     }
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-0">
+        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-0 pt-24 sm:pt-28 md:pt-20 mt-4 sm:mt-0">
             {/* Background Gradients */}
             <div className="absolute top-0 left-0 w-full h-full">
                 <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>

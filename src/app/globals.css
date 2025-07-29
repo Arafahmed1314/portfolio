@@ -73,6 +73,34 @@ html, body {
     min-height: 44px;
     min-width: 44px;
   }
+  
+  /* Ensure sections have proper spacing from fixed navbar */
+  section[id] {
+    scroll-margin-top: 90px;
+  }
+  
+  /* Specific spacing for hero section on mobile */
+  section#home {
+    padding-top: 100px !important;
+    margin-top: 16px !important;
+  }
+  
+  /* Add visual separation between navbar and content on mobile */
+  section#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+    z-index: 1;
+  }
+}
+
+/* Ensure sections have proper spacing from fixed navbar on all devices */
+section[id] {
+  scroll-margin-top: 60px;
 }
 
 /* Dynamic body background based on theme */

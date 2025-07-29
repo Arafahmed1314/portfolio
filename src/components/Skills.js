@@ -107,7 +107,7 @@ const Skills = () => {
   }
 
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
+    <section id="skills" className="py-12 md:py-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20" />
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl" />
